@@ -1,0 +1,181 @@
+---
+title: How did I combine my two motivations to generate 1000$ APY?
+excerpt: I discovered that the things that are unrelated to each other complement each other. It happens to me now and then. I want to share one of those moments with you. Two different motivations combined became my side project. Enjoying learning new things to which I can connect emotionally led to this project's success.
+date: '2022-02-08'
+tags: 
+  - binance
+  - cryptocurrency
+  - notification
+---
+
+I discovered that the things that are unrelated to each other complement each other. It happens to me now and then. I want to share one of those moments with you. Two different motivations combined became my side project. Enjoying learning new things to which I can connect emotionally led to this project's success.
+
+## Inspiration:
+   
+ ### TL;DR
+ - Getting into the depth of cryptocurrencies that uses proof of stake as a consensus mechanism.
+ - Learning Rust lang as it's been popping up as the most loved language for five years in a row.
+ - Combining both interests to solve the problem.
+
+<hr/>
+
+  It dates back to my school when my classmate asked me to purchase Bitcoin in 2013. He couldn't buy on his own since he was residing in the hostel and didn't have a credit card. He asked me to purchase Bitcoin when trading at about **600\$**  a coin. Using my dad's credit card, I used the VirWox exchange and traded **25$** worth of **Linden Dollars** with Bitcoins. I earned a few bucks in commission. 
+  
+  I hardly paid attention to why my friend wanted to buy Bitcoin until it became mainstream. I wished to buy it but didn't have the money and courage. But when I did, I jumped right in. I almost tripled my BTC valuation before the 2017 crash.
+  
+  I was fascinated by cryptocurrency quite a lot during the lock-down. I lost a few bucks trading when I realized no matter how well you play; you can't afford to lose. Make money slow but don't lose any in the journey. To achieve this, putting coins at stake was seemingly the best option. I read a few whitepapers and chose Polkadot as my first go-to option.
+  
+  Secondly, Rust had been popping up for quite a few years as the most loved programming language. I felt drawn toward the programming language and started asking why this was the case. Some issues related to memory safety have prevailed since the programming languages' inception. This curiosity was enough to drive me and let me learn it.
+        
+## The problem statement
+    
+   Staking options on Binance go out of stock in a matter of seconds. So I needed to figure out how to put my coins at stake on time.
+    
+### How did I put my coins at stake?
+    
+I was about the set up the notification for myself somehow. Before that, I googled and found a telegram bot already in the market for the same purpose. As it was an open-source application, after digging, I found the language of implementation was NodeJS. I subscribed to the bot. I received a notification and put my currency at stake. 
+    
+## Making of the bot
+### What motivated me to build my bot
+        
+
+     
+The bot I subscribed to offered me a 7-day free trial. It felt me a bit expensive to pay for the notification services. The cost of the plans was:  
+
+     
+| Price (USD) | Validity (days) |
+|-------------|-----------------|
+| 2.12        | 7               |
+| 5.29        | 28              |
+| 31.75       | 365             |
+
+  The payment must be processed through credit cards, discouraging settlement through cryptocurrency. The developer later introduced price in BTC, but that was too much of a hassle.
+   
+  I wished to reduce the cost and avail it to users for free for as long as possible. I chose to develop the program on my own. And to let users worldwide use it. I was pretty fluent in Python programming language. I started building my bot using it. 
+        
+ ### Bot mechanism
+        
+   The bot is essentially required to ping the external Binance public API (Not documented) and check for the JSON response state change at the frequency of 1 second.
+        
+   State @ 00:00:01
+   
+   ```json
+   {
+   	"data": [{
+   			"id": 1,
+   			"currency": "DOT",
+   			"available": true,
+   	}] 
+   }
+   ```
+   
+   State @ 00:00:02
+   
+   ```json
+   {
+   	"data": [{
+   			"id": 1,
+   			"currency": "DOT",
+   			"available": false,
+   	}] 
+   }
+   ```
+   
+   In the above two states, I needed to track the transition of `"available": true` turning to `"available": false` at any next moment and vice versa. After finding out about the state change, I needed to notify the subscribers.
+       
+### Why did I start to build with Google App Engine and Python
+   
+Since it was a hobby cum side project, I thought of playing with it. I had a couple of goals in my mind in the beginning.
+   
+- Achieve a forever zero-cost goal. 
+- Python was my go-to programming language.
+  
+*GCP app engine supported Python environment F1 instances free of cost forever. So I moved ahead with this stack.*
+
+Other Pros also helped me choose GCP: 
+
+- It has the log tooling built around it.
+- Can be scaled to thousands of instances pretty fast.
+
+#### The limitations while getting GAE app up and running
+- Serverless instance only triggers upon an HTTP request.
+- Cannot run the job that requires a persistent state.
+- High memory consumption ~135MB.
+- An instance cannot run indefinitely. I realized running an instance indefinitely is required to monitor the state of availability of staking options. 
+
+Following these steps, I found a workaround to keep the machine running indefinitely.
+1. Trigger the GAE instance endpoint just once using the google cloud task scheduler
+2. Process the request's response within the instance timeout duration (i.e., 5 minutes)
+3. Store the machine state in the persistent storage (Datastore)
+4. And push the task in the task queue to trigger the GAE instance endpoint again
+5. And Repeat
+
+_Application must be fault-tolerant; it must handle the errors correctly. Otherwise, the task in stage 4 would not get pushed to the task queue. Hence, the instance wouldn't get triggered. The cycle would break._
+
+
+
+I soon figured out I could use this service, lamely, for myself but cannot scale for more number of people.
+Even though I managed to get the service up and running for free, I was skeptical about the reliability. 
+   
+### Why did I migrate to Rust on azure VM?
+- The limitations of the GCP urged me to find another way to make it scalable and reliable.
+- I was fascinated by the Rust programming language at that time. The reason is its memory safety promise and bare-metal programming language features.
+- At the same time, I wanted to be better in Rust; I had a use case too. Hence, a perfect match to get started.
+- I decided to rebuild the entire application purely in Rust.
+
+#### Tech stack:   
+I was confident from the beginning to leverage the features of asynchronous programming because my application was mostly going to be I/O bound. Also, I wanted to push my limits in using Rust.
+   
+#### Services I used to build the application:
+       
+| Service                      | Pricing                     |
+|------------------------------|-----------------------------|
+| PostgreSQL on elephantsql    | Free up to 20 MB of storage |
+| Azure Portal                 | Free tier for one year        |
+| Binance Merch Payment Portal | Free                        |
+| Telegram Bot API             | Free                        |
+
+
+ #### Crates I used to build the application. 
+       
+| Use case               | crate Used       |
+|------------------------|------------------|
+| PostgreSQL           	 | Sea-ORM          |
+| Binance Pay Checkout\* | Self-written SDK |
+| Telegram Bot API     	 | Teloxide         |
+
+       
+\* *I used Binance as a checkout option to reduce the friction of paying in cryptocurrency. Also, the service comprised of the Binance staking notification. It made more sense to me to receive the payment through Binance pay. Since it's very likely to have the app installed on the subscriber's phone.*
+           
+#### The pricing structure I set:
+       
+Notification subscription price structure 
+
+| The bot I found (USD) | Subscription cost of my bot (USDT) | Validity (days) |
+|-----------------------|------------------------------------|-----------------|
+| 2.12                  | 0.99                               | 7               |
+| 5.29                  | 2.99                               | 30              |
+| 31.75                 | 19.99                              | 365             |
+
+   There's also a freemium service where subscribers' subscription to any token expires at 3:00 PM GMT. 
+   I kept this structure so I'd not lose any users in the course.
+   
+###  How much I earn:-
+
+#### During peak time: 
+The MOM growth rate of getting the subscribers on board till June 2022 was around 10%
+
+I found out that most people were likely to buy a 1-month subscription.
+
+#### Now: 
+Since the crypto market of the 2022 June crash, people have lost interest and do not put cryptocurrency at stake. The revenue has come down to almost 1/10 of ATH. I will keep the bot running as I firmly believe it will again pick up in the coming time.  
+
+
+## By-product of doing this side project
+
+- I open-sourced Binance pay API for Rust:
+
+As the notification application used the Binance Payment API to get the payment done, I converted the workspace to a separate reusable crate so other developers could use it. Rust developers can find the crate on [crates.io](https://crates.io/crates/binance-pay-rs)
+
+
+
