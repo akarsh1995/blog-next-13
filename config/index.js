@@ -7,15 +7,15 @@
 
 /** @type {import('./types').BlogConfig} */
 const blogConfig = {
-  url: 'https://blog.kfirfitousi.com',
-  title: '‹kfir/blog›',
-  titleParts: ['kfir', 'blog'],
-  author: 'Kfir Fitousi',
+  url: 'https://akar.sh',
+  title: '‹akarsh/blog›',
+  titleParts: ['akarsh', 'blog'],
+  author: 'Akarsh Jain',
   pages: {
     home: {
-      title: 'Web Development Blog by Kfir Fitousi',
+      title: 'Zero to One blog by Akarsh',
       description:
-        "My name is Kfir and I'm a Full Stack Developer. Welcome to my dev blog! I write about Web Development and other topics I'm interested in.",
+        "You want to know more about 10x development. Do check out my blog.",
     },
     posts: {
       url: '/posts',
@@ -35,8 +35,8 @@ const blogConfig = {
     },
   },
   giscus: {
-    repo: 'kfirfitousi/blog',
-    repoId: 'R_kgDOIcM7JA',
+    repo: 'akarsh1995/blog-next-13',
+    repoId: 'R_kgDOJfL4Lg',
     category: 'Comments',
     categoryId: 'DIC_kwDOIcM7JM4CTdK0',
     mapping: 'title',
@@ -46,12 +46,12 @@ const blogConfig = {
     },
   },
   footerLinks: {
-    twitter: 'https://twitter.com/kp2c',
-    github: 'https://github.com/kfirfitousi',
-    linkedin: 'https://www.linkedin.com/in/kfirp',
-    email: 'kfirfitousi@gmail.com',
-    storybook: 'https://story.blog.kfirfitousi.com',
-    buyMeAPizza: 'https://buymeacoffee.com/kfirfitousi',
+    // twitter: 'https://twitter.com/kp2c',
+    github: 'https://github.com/akarsh1995',
+    linkedin: 'https://www.linkedin.com/in/akarsh1995',
+    email: 'akarsh.1995.02@gmail.com',
+    // buyMeAPizza: 'https://buymeacoffee.com/kfirfitousi',
+    // storybook: 'https://story.blog.kfirfitousi.com',
   },
   topics: [
     'Web Development',
@@ -59,8 +59,8 @@ const blogConfig = {
     'TypeScript',
     'Next.js',
     'Rust',
-    'Design',
     'Computer Vision',
+    'Python',
   ],
 };
 
