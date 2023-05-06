@@ -15,7 +15,7 @@ const blogConfig = {
     home: {
       title: 'Zero to One blog by Akarsh',
       description:
-        "You want to know more about 10x development. Do check out my blog.",
+        "Tech is secondary. I love to work in uncertain environment.",
     },
     posts: {
       url: '/posts',
@@ -37,8 +37,8 @@ const blogConfig = {
   giscus: {
     repo: 'akarsh1995/blog-next-13',
     repoId: 'R_kgDOJfL4Lg',
-    category: 'Comments',
-    categoryId: 'DIC_kwDOIcM7JM4CTdK0',
+    category: 'Announcements',
+    categoryId: 'DIC_kwDOJfL4Ls4CWSZ-',
     mapping: 'title',
     theme: {
       light: 'light',
