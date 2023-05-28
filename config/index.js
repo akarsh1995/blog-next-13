@@ -13,9 +13,9 @@ const blogConfig = {
   author: 'Akarsh Jain',
   pages: {
     home: {
-      title: 'Zero to One blog by Akarsh',
+      title: 'Akarsh: I try new things out to create my own perspective',
       description:
-        "Tech is secondary. I love to work in uncertain environment.",
+        "Tech is secondary. I search for answers to the \"How does it make sense?\" question. Also, I love to work in an uncertain environment.",
     },
     posts: {
       url: '/posts',

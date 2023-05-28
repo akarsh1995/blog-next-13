@@ -16,7 +16,7 @@ export function HeroSection() {
 
       <h1 className="block w-full text-center text-3xl font-bold text-slate-800 dark:text-rose-50 xs:text-4xl sm:text-5xl">
         <Balancer>
-          I fund startups.
+          I try new things out to create my own perspective.
         </Balancer>
       </h1>
       <p className="text-center text-lg text-slate-800 dark:text-rose-50 xs:text-2xl p-4">
@@ -24,7 +24,6 @@ export function HeroSection() {
           I'm a Founding Engineer @&nbsp;
           <a className='text-accent dark:text-accent-dark hover:underline' href="https://www.oleic.co" target='_blank' rel="noopener noreferrer">Oleic</a>. 
           Seeing the market opportunity in the Hypercasual gaming in 2021 in India. I with my college friends started a remote startup.
-          Currently I fund startup with my time.
         </Balancer>
       </p>
     </section>
