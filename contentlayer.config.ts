@@ -13,7 +13,11 @@ import rehypePrettyCode, {
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkDirectives from 'remark-directive';
+
+/* eslint-disable */
+// @ts-ignore
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
+/* eslint-enable */
 
 import { blogConfig } from './config';
 import remarkDirective from 'remark-directive';

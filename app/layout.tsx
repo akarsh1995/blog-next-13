@@ -20,6 +20,7 @@ const fontSans = Red_Hat_Display({
 const fontSerif = Newsreader({
   subsets: ['latin'],
   variable: '--font-newsreader',
+  display: 'swap',
 });
 
 type RootLayoutProps = {
