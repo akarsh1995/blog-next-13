@@ -12,8 +12,11 @@ import rehypePrettyCode, {
 } from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import remarkDirectives from 'remark-directive';
+import remarkCalloutDirectives from '@microflash/remark-callout-directives';
 
 import { blogConfig } from './config';
+import remarkDirective from 'remark-directive';
 
 const computedFields: ComputedFields = {
   slug: {
@@ -96,6 +99,8 @@ export default makeSource({
        * Adds support for GitHub Flavored Markdown
        */
       remarkGfm,
+      remarkDirectives,
+      remarkCalloutDirectives,
     ],
     rehypePlugins: [
       /**
