@@ -44,8 +44,8 @@ dependencies:
     specifier: ^0.3.2
     version: 0.3.2(esbuild@0.17.2)(next@13.3.1)(react-dom@18.2.0)(react@18.2.0)
   next-sitemap:
-    specifier: ^4.0.7
-    version: 4.0.7(@next/env@13.3.1)(next@13.3.1)
+    specifier: ^4.1
+    version: 4.1.2(@next/env@13.3.1)(next@13.3.1)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -9536,8 +9536,8 @@ packages:
       - supports-color
     dev: false
 
-  /next-sitemap@4.0.7(@next/env@13.3.1)(next@13.3.1):
-    resolution: {integrity: sha512-S2g5IwJeO0+ecmFq981fb+Mw9YWmntOuN/qTCxclSkUibOJ8qKIOye0vn6NEJ1S4tKhbY+MTYKgJpNdFZYxLoA==}
+  /next-sitemap@4.1.2(@next/env@13.3.1)(next@13.3.1):
+    resolution: {integrity: sha512-iIgJFSZKX/xf94JbK1PFPp7H4UctTm0N3/WG7arsfyjFy3WLoTnJL7zZ3XNOMB/d44vf2wkMYsTfsoXAwkggQg==}
     engines: {node: '>=14.18'}
     hasBin: true
     peerDependencies:
@@ -9546,6 +9546,7 @@ packages:
     dependencies:
       '@corex/deepmerge': 4.0.43
       '@next/env': 13.3.1
+      fast-glob: 3.2.12
       minimist: 1.2.8
       next: 13.3.1(@babel/core@7.21.4)(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)
     dev: false
