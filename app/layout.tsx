@@ -77,7 +77,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={cn(
         'scroll-pt-16 overflow-auto overscroll-none',
         fontSans.variable,
-        fontSerif.variable
+        fontSerif.variable,
+        'dark'
       )}
     >
       <head />

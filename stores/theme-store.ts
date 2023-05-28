@@ -19,7 +19,7 @@ interface ThemeState {
 
 export const useThemeStore = create<ThemeState>()(
   devtools((set) => ({
-    isDark: false,
+    isDark: true,
     isSerif: false,
     fontSize: 'lg',
     isFontSizeMin: false,
