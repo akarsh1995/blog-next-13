@@ -70,14 +70,14 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
+
   return (
     <html
       lang="en"
       className={cn(
         'scroll-pt-16 overflow-auto overscroll-none',
         fontSans.variable,
-        fontSerif.variable,
-        'dark',
+        fontSerif.variable
       )}
     >
       <head />

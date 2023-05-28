@@ -7,6 +7,7 @@ import { useSearchStore } from '@/stores/search-store';
 import { useThemeStore } from '@/stores/theme-store';
 import { Tooltip } from '@/components/tooltip';
 import { cn } from '@/lib/utils';
+import { useEffect } from 'react';
 
 type ToolbarProps = {
   fontControls: boolean;
@@ -44,6 +45,8 @@ export function Toolbar({ fontControls, className }: ToolbarProps) {
     toggleDark();
     document.querySelector('html')?.classList.toggle('dark');
   };
+
+  useEffect(toggleDarkAndApply, [])
 
   return (
     <div
