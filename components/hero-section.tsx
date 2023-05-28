@@ -19,10 +19,10 @@ export function HeroSection() {
           I try new things out to create my own perspective.
         </Balancer>
       </h1>
-      <p className="text-center text-lg text-slate-800 dark:text-rose-50 xs:text-2xl p-4">
+      <p className="p-4 text-center text-lg text-slate-800 dark:text-rose-50 xs:text-2xl">
         <Balancer>
-          I'm a Founding Engineer @&nbsp;
-          <a className='text-accent dark:text-accent-dark hover:underline' href="https://www.oleic.co" target='_blank' rel="noopener noreferrer">Oleic</a>. 
+          I&apos;m a Founding Engineer @&nbsp;
+          <a className='text-accent hover:underline dark:text-accent-dark' href="https://www.oleic.co" target='_blank' rel="noopener noreferrer">Oleic</a>. 
           Seeing the market opportunity in the Hypercasual gaming in 2021 in India. I with my college friends started a remote startup.
         </Balancer>
       </p>
