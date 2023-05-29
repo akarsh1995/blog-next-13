@@ -94,6 +94,11 @@ export const Project = defineDocumentType(() => ({
       description: 'A list of keywords that relate to the post',
       required: true,
     },
+    externalLink: {
+      type: 'string',
+      description: 'Github/external project link.',
+      required: true
+    }
   },
   computedFields: {
     url: {
