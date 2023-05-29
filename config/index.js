@@ -23,6 +23,11 @@ const blogConfig = {
       description:
         "All my blog posts. I write about Web Development and other topics I'm interested in.",
     },
+    projects: {
+      url: '/projects',
+      title: 'Projects',
+      description: "All my personal projects.",
+    }
   },
   theme: {
     accentColor: {

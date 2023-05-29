@@ -25,6 +25,12 @@ export function NavigationBar({ className }: NavigationBarProps) {
       >
         Posts
       </Link>
+      <Link
+        href="/projects"
+        className="font-semibold hover:text-accent dark:hover:text-accent-dark"
+      >
+        Projects
+      </Link>
       {allPages.map((page) => (
         <Link
           href={page.url}

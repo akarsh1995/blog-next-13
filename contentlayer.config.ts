@@ -67,6 +67,45 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
+
+export const Project = defineDocumentType(() => ({
+  name: 'Project',
+  filePathPattern: `projects/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the project',
+      required: true,
+    },
+    date: {
+      type: 'date',
+      description: 'Date of the project.',
+      required: true,
+    },
+    excerpt: {
+      type: 'string',
+      description: 'Short summary of the post',
+      required: true,
+    },
+    tags: {
+      type: 'list',
+      of: { type: 'string' },
+      description: 'A list of keywords that relate to the post',
+      required: true,
+    },
+  },
+  computedFields: {
+    url: {
+      type: 'string',
+      description: 'The URL of the post, e.g. /project/my-project',
+      resolve: (post) => `/${post._raw.flattenedPath}`,
+    },
+    ...computedFields,
+  },
+}));
+
+
 export const Page = defineDocumentType(() => ({
   name: 'Page',
   filePathPattern: `pages/**/*.mdx`,
@@ -96,7 +135,7 @@ export const Page = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: './content',
-  documentTypes: [Post, Page],
+  documentTypes: [Post, Page, Project],
   mdx: {
     remarkPlugins: [
       /**

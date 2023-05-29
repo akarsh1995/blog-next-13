@@ -64,6 +64,22 @@ export type BlogConfig = {
        */
       description: string;
     };
+    projects: {
+      /**
+       * The URL of the projects page.
+       * If you want to use a different URL,
+       * make sure to rename the `app/projects` directory to match.
+       */
+      url: `/${string}`;
+      /**
+       * The title of the projects page (the part after the pipe).
+       */
+      title: string;
+      /**
+       * The description of the projects page.
+       */
+      description: string;
+    };
   };
   /**
    * Customize the blog's theme.
