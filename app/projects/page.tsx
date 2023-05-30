@@ -35,9 +35,9 @@ export default function PostsPage() {
   );
 
   return (
-    <div className="h-full px-6 pb-12 space-y-5 sm:px-12">
+    <div className="h-full space-y-5 px-6 pb-12 sm:px-12">
       {projects.map((project) => (
-        <ProjectCard project={project} />
+        <ProjectCard key={project.slug} project={project} />
       ))}
     </div>
   );
