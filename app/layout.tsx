@@ -3,7 +3,6 @@ import 'react-tooltip/dist/react-tooltip.css';
 import { Newsreader, Red_Hat_Display } from 'next/font/google';
 import { type Metadata } from 'next/types';
 import { allPosts } from 'contentlayer/generated';
-import '@microflash/remark-callout-directives/themes/vitepress.css';
 import { blogConfig } from '@/config';
 import { Analytics } from '@/components/analytics';
 import { FontStyleProvider } from '@/components/font-style-provider';
