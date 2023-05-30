@@ -1,10 +1,9 @@
 import { type Metadata } from 'next/types';
 import { allProjects } from 'contentlayer/generated';
+import { ProjectCard } from 'components/project-card';
 import { compareDesc } from 'date-fns';
 
 import { blogConfig } from '@/config';
-import { PostPaginator } from '@/components/post-paginator';
-import Link from 'next/link';
 
 const { url, title, description } = blogConfig.pages.projects;
 
@@ -36,8 +35,10 @@ export default function PostsPage() {
   );
 
   return (
-    <div className="h-full px-6 pb-12 sm:px-12">
-      {projects.map(project => (<Link key={project.slug} href={project.url}>{project.title}</Link>))}
+    <div className="h-full px-6 pb-12 space-y-5 sm:px-12">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
     </div>
   );
 }

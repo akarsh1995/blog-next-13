@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Project } from 'contentlayer/generated';
 import Balancer from 'react-wrap-balancer';
+
 import { cn } from '@/lib/utils';
 
 type ProjectCardProps = {
@@ -12,29 +13,30 @@ type ProjectCardProps = {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
-      href={project.url}
+      href={project.externalLink}
+      target="_blank"
+      rel="noopener noreferrer"
       className={cn(
-        'group relative flex h-fit w-1/2',
+        'group relative flex h-fit w-full',
         'transition-transform duration-300 ease-in-out hover:scale-[1.02]',
       )}
+      style={{ minHeight: '8rem' }}
       aria-label={project.title}
     >
       <article
         className={cn(
-          'flex h-fit w-full flex-col space-y-4 rounded',
+          'flex w-full flex-col space-y-4 rounded',
           'relative z-10 m-0.5 py-3 pl-10 pr-6 shadow-lg hover:shadow-xl',
           'bg-slate-100/95 dark:bg-slate-600/90',
+          'justify-center',
         )}
       >
         <div className="flex flex-col space-y-2">
-          <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
-            <Balancer>
-              {project.title}
-            </Balancer>
-          </h2>
-          <p className="text-slate-700 dark:text-rose-50">
-            <Balancer>{project.excerpt}</Balancer>
-          </p>
+          <div className="flex">
+            <h2 className="text-2xl font-bold leading-normal text-slate-800 dark:text-rose-50 sm:text-3xl">
+              <Balancer>{project.title} </Balancer>
+            </h2>
+          </div>
         </div>
       </article>
       <div
