@@ -13,7 +13,7 @@ I also build keyboards by designing PCBs, sourcing components and getting stuff 
 
 I enjoy passing on the experience I gained particularly to interns or the folks who are going through initial stage of their career.
 
-I work remotely for [DEFX PTE, Singapore](https://app.defx.com/), in a team of eight engineers distributed across the globe.
+I work remotely for [DEFX, Singapore](https://app.defx.com/), in a team of eight engineers distributed across the globe.
 
 ## Projects
 - [LeetCode Terminal User Interface (Rust)](https://github.com/akarsh1995/leetcode-tui) (⭐️ ${repoStars.leetcodeTUI})
