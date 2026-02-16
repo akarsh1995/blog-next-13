@@ -1,11 +1,11 @@
 export const markdown = (repoStars: {
-	leetcodeGraphQL: number;
-	hackintosh: number;
-	leetcodeTUI: number;
+  leetcodeGraphQL: number;
+  hackintosh: number;
+  leetcodeTUI: number;
 }) => `
 ## Me 
 
-Hi, I'm Akarsh. Together with my wife and my yet to welcome kid, we live in Bhopal, India.  
+Hi, I'm Akarsh. Together with my wife, we live in Bengaluru, India.  
 
 I love to program, read about science and tech and spend money on things that improve quality of life.
 
